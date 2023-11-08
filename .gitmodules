@@ -1,0 +1,3 @@
+[submodule "libraries/libft_updated"]
+	path = libraries/libft_updated
+	url = git@github.com:Tanguyfockedey/libft_updated.git
