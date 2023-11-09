@@ -6,7 +6,7 @@
 #    By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 18:30:38 by tafocked          #+#    #+#              #
-#    Updated: 2023/11/09 17:58:56 by tafocked         ###   ########.fr        #
+#    Updated: 2023/11/09 19:07:58 by tafocked         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FILES	= source/main.c
 
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
-LDFLAGS	= includes/libft_updated/libft.a
+LDLIBS	= includes/libft_updated/libft.a
 OBJ		= $(FILES:.c=.o)
 
 re: fclean $(NAME) clean
@@ -24,8 +24,7 @@ re: fclean $(NAME) clean
 all: fclean libs $(NAME) clean
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(FILES) -o $(NAME)
-#	ar -r $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) $(LDLIBS) $(FILES) -o $(NAME)
 
 libs:
 	@ $(MAKE) -C includes/libft_updated
