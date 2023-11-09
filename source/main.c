@@ -6,13 +6,11 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:37:47 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/09 15:43:48 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/09 18:55:14 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libraries/libft_updated/base/libft.h"
-#include "libraries/libft_updated/printf/ft_printf.h"
-//#include "libraries/minilibx_opengl/"
+#include "fractol.h"
 
 int main(void)
 {

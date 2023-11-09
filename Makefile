@@ -6,16 +6,17 @@
 #    By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 18:30:38 by tafocked          #+#    #+#              #
-#    Updated: 2023/11/09 16:09:04 by tafocked         ###   ########.fr        #
+#    Updated: 2023/11/09 17:58:56 by tafocked         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fractol
 
-FILES	= main.c
+FILES	= source/main.c
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror libraries/libft_updated/libft.a
+CFLAGS	= -Wall -Wextra -Werror
+LDFLAGS	= includes/libft_updated/libft.a
 OBJ		= $(FILES:.c=.o)
 
 re: fclean $(NAME) clean
@@ -23,16 +24,20 @@ re: fclean $(NAME) clean
 all: fclean libs $(NAME) clean
 
 $(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(FILES) -o $(NAME)
 #	ar -r $(NAME) $(OBJ)
 
 libs:
-	@ $(MAKE) -C libraries/libft_updated
-	@ $(MAKE) -C libraries/minilibx_opengl
+	@ $(MAKE) -C includes/libft_updated
+	@ $(MAKE) -C includes/minilibx_opengl
 
 clean:
 	rm -f $(OBJ)
+	$(MAKE) -C includes/libft_updated clean
+	$(MAKE) -C includes/minilibx_opengl clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C includes/libft_updated fclean
 
-.PHONY:
+.PHONY: all re libs clean fclean
