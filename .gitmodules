@@ -1,6 +1,3 @@
 [submodule "libraries/libft_updated"]
 	path = libraries/libft_updated
 	url = git@github.com:Tanguyfockedey/libft_updated.git
-[submodule "libraries/minilibx-linux"]
-	path = libraries/minilibx-linux
-	url = git@github.com:42Paris/minilibx-linux.git
