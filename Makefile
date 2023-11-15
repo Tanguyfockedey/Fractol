@@ -6,7 +6,7 @@
 #    By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 18:30:38 by tafocked          #+#    #+#              #
-#    Updated: 2023/11/09 19:10:00 by tafocked         ###   ########.fr        #
+#    Updated: 2023/11/15 17:10:47 by tafocked         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,15 @@ FILES	= source/main.c
 
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
-LDLIBS	= includes/libft_updated/libft.a
+LDLIBS	= includes/libft_updated/libft.a \
+			-lmlx -framework OpenGL -framework AppKit \
+			-lm
 OBJ		= $(FILES:.c=.o)
-
-re: fclean $(NAME) clean
 
 all: fclean libs $(NAME) clean
 
+re: $(NAME)
+ 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(LDLIBS) $(OBJ) -o $(NAME)
 
