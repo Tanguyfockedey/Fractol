@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:37:47 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/16 19:27:04 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/16 21:20:33 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,49 @@ void	my_circle(t_data *data, int radius)
 	}
 }
 
+int	argv_check(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (ft_isdigit(str[i]))
+		i++;
+	if (!str[i])
+		return (1);
+	if (str[i] == '.')
+		i++;
+	if (!str[i])
+		return (1);
+	while (ft_isdigit(str[i]))
+		i++;
+	if (!str[i])
+		return (1);
+	return (0);
+}
+
 int	args_check(int argc, char **argv)
 {
-	(void) argv;
+	double	a;
+	double	b;
 
 	if (argc == 2 && (!ft_strncmp(argv[1], "M", 2)
 					|| !ft_strncmp(argv[1], "Mandelbrot", 11)
 					|| !ft_strncmp(argv[1], "J", 2)
 					|| !ft_strncmp(argv[1], "Julia", 6)))
 		return (1);
-	if (argc == 4)
+	if (argc == 4 && (!ft_strncmp(argv[1], "J", 2)
+					|| !ft_strncmp(argv[1], "Julia", 6)))
 	{
-		
+		if (!argv_check(argv[2]) || !argv_check(argv[3]))
+			return (0); 
+		a = ft_atof(argv[2]);
+		b = ft_atof(argv[3]);
+		if (a >= -2. && a <= 2. && b >= -2. && b <= 2.)
+			return (1);
 	}
 	
 //					&& (argv[1] == "J" || argv[1] == "Julia")
