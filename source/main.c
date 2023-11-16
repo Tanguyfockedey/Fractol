@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:37:47 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/15 18:26:42 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:27:04 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,34 @@ void	my_circle(t_data *data, int radius)
 	}
 }
 
-int main(void)
+int	args_check(int argc, char **argv)
+{
+	(void) argv;
+
+	if (argc == 2 && (!ft_strncmp(argv[1], "M", 2)
+					|| !ft_strncmp(argv[1], "Mandelbrot", 11)
+					|| !ft_strncmp(argv[1], "J", 2)
+					|| !ft_strncmp(argv[1], "Julia", 6)))
+		return (1);
+	if (argc == 4)
+	{
+		
+	}
+	
+//					&& (argv[1] == "J" || argv[1] == "Julia")
+//					&& argv[2] >= -2.0 && argv[3] >= -2.0
+//					&& argv[2] <= 2.0 && argv[3] <= 2.0)
+//		return (1);
+	return (print_params());
+}
+
+int	main(int argc, char **argv)
+{
+	if (!args_check(argc, argv))
+		return (-1);
+}
+/*
+int win(void)
 {
 	void *mlx;
 	void *mlx_win;
@@ -72,3 +99,4 @@ int main(void)
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
+*/

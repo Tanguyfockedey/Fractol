@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:43:58 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/15 17:06:30 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:40:34 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 }	t_data;
+
+	int	print_params(void);
+	void	print_commands(void);
 
 #endif

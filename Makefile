@@ -6,13 +6,14 @@
 #    By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 18:30:38 by tafocked          #+#    #+#              #
-#    Updated: 2023/11/15 17:10:47 by tafocked         ###   ########.fr        #
+#    Updated: 2023/11/16 18:30:52 by tafocked         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fractol
 
-FILES	= source/main.c
+FILES	= source/main.c \
+			source/msg.c 
 
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
