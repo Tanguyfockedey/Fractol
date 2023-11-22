@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:43:58 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/22 20:18:54 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:41:13 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ typedef struct s_fractal
 	//hooks
 	int	key_hook(int hook, t_fractal *fractal);
 	int	mouse_hook(int hook, int x, int y, t_fractal *fractal);
-
+	int	event_hook(void);
+	
 	//msg
 	int		print_params(void);
 	void	print_commands(void);

@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:37:47 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/22 20:16:54 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:40:00 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	main(int argc, char **argv)
 	init_fractal(&fractal, argc, argv);
 	mlx_key_hook(fractal.window, key_hook, &fractal);
 	mlx_mouse_hook(fractal.window, mouse_hook, &fractal);
+	mlx_hook(fractal.window, 17, 0, event_hook, &fractal);
 	render(&fractal);
 	my_axis(&fractal);
 	my_circle(&fractal, 100);

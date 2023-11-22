@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:10:00 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/22 20:26:19 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:51:01 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,9 @@ int	mouse_hook(int hook, int x, int y, t_fractal *fractal)
 	render(fractal);
 	return (0);
 }
+
+	int	event_hook(void)
+	{
+		exit(1);
+		return (1);
+	}
