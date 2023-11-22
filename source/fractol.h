@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:43:58 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/22 19:27:45 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:18:54 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
-
 typedef struct s_fractal
 {
 	void	*mlx;
@@ -44,15 +43,6 @@ typedef struct s_fractal
 	int		endian;
 }	t_fractal;
 
-typedef struct s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-}	t_data;
-
 	//initialisation
 	int	argv_check(char *str);
 	int	args_check(int argc, char **argv);
@@ -60,9 +50,15 @@ typedef struct s_data
 	
 	//hooks
 	int	key_hook(int hook, t_fractal *fractal);
+	int	mouse_hook(int hook, int x, int y, t_fractal *fractal);
 
 	//msg
 	int		print_params(void);
 	void	print_commands(void);
+
+	//rendering
+	void	render(t_fractal *fractol);
+	void	zoom(t_fractal *fractal, int x, int y, double scale);
+	void	move(t_fractal *fractal, double x, double y);
 
 #endif
