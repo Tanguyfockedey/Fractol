@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:04:50 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/16 18:40:29 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:07:36 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	print_params(void)
 	ft_printf("List of available parameters \n");
 	ft_printf("----------------------------- \n");
 	ft_printf("M - Mandelbrot \n");
+	ft_printf("B - Burning Ship \n");
 	ft_printf("J - Julia \n");
 	ft_printf("For julia you may specify two values between -2.0 and 2.0 \n\n");	
 	return (0);
