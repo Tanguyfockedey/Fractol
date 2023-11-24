@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:52:21 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/24 22:08:25 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/24 22:21:58 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void	color_pixel(t_fractal *f, int x_pix, int y_pix, int color)
 	else if (color <= 1)
 		*(unsigned int*)addr = 0x00FFFFFF;
 	else
-		*(unsigned int*)addr = 0x00000000 + color * 0x00020000;
+	//	*(unsigned int*)addr = 0x00000000 + color * 0x00020000;
+		*(unsigned int*)addr = 0x00000000 + color * 1000;
 }

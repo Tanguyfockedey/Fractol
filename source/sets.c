@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:54:12 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/24 21:37:59 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/24 22:18:12 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	mandelbrot(t_fractal *f, double cr, double ci)
 	i = 0;
 	while (++i < f->max_iter)
 	{
-		if ((zr * zr + zi * zi) > 40.)
+		if ((zr * zr + zi * zi) > 4.)
 			break;
 		temp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;
@@ -58,7 +58,7 @@ int	julia(t_fractal *f, double zr, double zi)
 	i = 0;
 	while (++i < f->max_iter)
 	{
-		if ((zr * zr + zi * zi) > 40.)
+		if ((zr * zr + zi * zi) > 4.)
 			break;
 		temp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;
@@ -79,7 +79,7 @@ int	burning_ship(t_fractal *f, double cr, double ci)
 	i = 0;
 	while (++i < f->max_iter)
 	{
-		if ((zr * zr + zi * zi) > 40.)
+		if ((zr * zr + zi * zi) > 4.)
 			break;
 		zr = fabs(zr);
 		zi = fabs(zi);

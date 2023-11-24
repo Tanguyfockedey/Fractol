@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:58:06 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/24 22:12:21 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/24 22:18:25 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	init_fractal(t_fractal *f, int argc, char **argv)
 		f->jr = -0.1;
 		f->ji = 0.651;
 	}
-	f->max_iter = 20;
+	f->max_iter = 50;
 	f->max_r = 5.;
 	f->max_i = f->max_r * HEIGHT / WIDTH;
 }
