@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:43:58 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/22 20:41:13 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/24 21:35:07 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,16 @@ typedef struct s_fractal
 	void	*image;
 	char	*addr;
 	char	set;
-	double	julia1;
-	double	julia2;
-	int		bits_per_pixel;
+	double	jr;
+	double	ji;
+	int		bpp;
 	int		size_line;
 	int		endian;
+	int		max_iter;
+	double	max_r;
+	double	max_i;
+	double	offset_x;
+	double	offset_y;
 }	t_fractal;
 
 	//initialisation
@@ -61,5 +66,15 @@ typedef struct s_fractal
 	void	render(t_fractal *fractol);
 	void	zoom(t_fractal *fractal, int x, int y, double scale);
 	void	move(t_fractal *fractal, double x, double y);
+	void	color_pixel(t_fractal *f, int x_pix, int y_pix, int color);
+
+
+
+	//sets
+	int	calculate_set(t_fractal *f, double cr, double ci);
+	int	mandelbrot(t_fractal *f, double cr, double ci);
+	int	julia(t_fractal *f, double zr, double zi);
+	int	burning_ship(t_fractal *f, double cr, double ci);
+
 
 #endif

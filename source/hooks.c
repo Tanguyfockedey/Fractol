@@ -6,26 +6,24 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:10:00 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/22 20:51:01 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/24 22:01:15 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	key_hook(int hook, t_fractal *fractal)
+int	key_hook(int hook, t_fractal *f)
 {
-	(void) fractal;
 	if (hook == ESC)
 		exit(1);
 	if (hook == UP)
-		move(fractal, 0., 0.1);
+		move(f, 0., -0.01);
 	if (hook == DOWN)
-		move(fractal, 0., -0.1);
+		move(f, 0., 0.01);
 	if (hook == LEFT)
-		move(fractal, 0.1, 0.);
+		move(f, -0.01, 0.);
 	if (hook == RIGHT)
-		move(fractal, -0.1, 0.);
-	render(fractal);
+		move(f, 0.01, 0.);
 	return (0);
 }
 
