@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:54:12 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/24 22:18:12 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/26 18:13:05 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,10 @@ int	burning_ship(t_fractal *f, double cr, double ci)
 	{
 		if ((zr * zr + zi * zi) > 4.)
 			break;
-		zr = fabs(zr);
-		zi = fabs(zi);
+		if (zr < 0)
+			zr = -zr;
+		if (zi < 0)
+			zi = -zi;
 		temp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;
 		zi = temp;

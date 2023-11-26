@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:10:00 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/24 22:19:45 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:48:38 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,26 @@
 
 int	key_hook(int hook, t_fractal *f)
 {
+	if (hook == UP)
+		move(f, 0., -0.1);
+	if (hook == DOWN)
+		move(f, 0., 0.1);
+	if (hook == LEFT)
+		move(f, -0.1, 0.);
+	if (hook == RIGHT)
+		move(f, 0.1, 0.);
+	if (hook == INC)
+		inc_iter(f);
+	if (hook == DEC)
+		dec_iter(f);
+	if (hook == J)
+		rand_julia(f);
+	if (hook == C)
+		color_change(f);
+	if (hook == R)
+		reset(f);
 	if (hook == ESC)
 		exit(1);
-	if (hook == UP)
-		move(f, 0., -0.05);
-	if (hook == DOWN)
-		move(f, 0., 0.05);
-	if (hook == LEFT)
-		move(f, -0.05, 0.);
-	if (hook == RIGHT)
-		move(f, 0.05, 0.);
 	return (0);
 }
 
@@ -37,8 +47,8 @@ int	mouse_hook(int hook, int x, int y, t_fractal *fractal)
 	return (0);
 }
 
-	int	event_hook(void)
-	{
-		exit(1);
-		return (1);
-	}
+int	event_hook(void)
+{
+	exit(1);
+	return (1);
+}

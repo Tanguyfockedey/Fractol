@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:58:06 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/24 22:18:25 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/26 18:51:23 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,21 @@ void	init_fractal(t_fractal *f, int argc, char **argv)
 	f->window = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fract'ol");
 	f->image = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->image, &f->bpp, &f->size_line, &f->endian);
+	f->set = argv[1][0];
+	f->jr = -0.1;
+	f->ji = 0.651;
 	if (argc == 4)
 	{
-		f->set = 'J';
 		f->jr = ft_atof(argv[2]);
 		f->ji = ft_atof(argv[3]);
 	}
-	else
-	{
-		f->set = argv[1][0];
-		f->jr = -0.1;
-		f->ji = 0.651;
-	}
-	f->max_iter = 50;
-	f->max_r = 5.;
+	f->jr_copy = f->jr;
+	f->ji_copy = f->ji;
+	f->max_iter = 32;
+	f->max_r = 2.;
 	f->max_i = f->max_r * HEIGHT / WIDTH;
+	f->offset_x = 0.;
+	f->offset_y = 0.;
+	f->color_start = 0;
+	f->color_step = 1000;
 }

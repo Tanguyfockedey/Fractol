@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:52:21 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/24 22:21:58 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/26 18:50:13 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,20 @@ void	render(t_fractal *f)
 
 void	zoom(t_fractal *f, int x, int y, double scale)
 {
-	(void) f;
-	(void) x;
-	(void) y;
-	(void) scale;
-
+	if (scale < 1)
+	{
+	f->offset_x += ((double)x / (double)WIDTH - 0.5) * f->max_r;
+	f->offset_y += ((double)y / (double)HEIGHT - 0.5) * f->max_i;
 	f->max_r *= scale;
 	f->max_i = f->max_r * HEIGHT / WIDTH;
+	}
+	else
+	{
+	f->max_r *= scale;
+	f->max_i = f->max_r * HEIGHT / WIDTH;
+	f->offset_x -= ((double)x / (double)WIDTH - 0.5) * f->max_r;
+	f->offset_y -= ((double)y / (double)HEIGHT - 0.5) * f->max_i;
+	}
 	render(f);
 }
 
@@ -61,9 +68,7 @@ void	color_pixel(t_fractal *f, int x_pix, int y_pix, int color)
 	addr = f->addr + (y_pix * f->size_line + x_pix * f->bpp / 8);
 	if (color == f->max_iter)
 		*(unsigned int*)addr = 0x00000000;
-	else if (color <= 1)
-		*(unsigned int*)addr = 0x00FFFFFF;
 	else
 	//	*(unsigned int*)addr = 0x00000000 + color * 0x00020000;
-		*(unsigned int*)addr = 0x00000000 + color * 1000;
+		*(unsigned int*)addr = (f->color_start + color * f->color_step) & 0x00FFFFFF;
 }
