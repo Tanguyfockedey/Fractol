@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:37:47 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/26 17:55:51 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:18:39 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main(int argc, char **argv)
 
 	if (!args_check(argc, argv))
 		return (-1);
-	init_fractal(&f, argc, argv);
+	if (!init_fractal(&f, argc, argv))
+		return (-1);
 	print_commands();
 	mlx_key_hook(f.window, key_hook, &f);
 	mlx_mouse_hook(f.window, mouse_hook, &f);

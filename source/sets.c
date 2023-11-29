@@ -6,26 +6,13 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:54:12 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/29 15:34:13 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:43:15 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	calculate_set(t_fractal *f, double cr, double ci)
-{
-	int	i;
-
-	if (f->set == 'B')
-		i = burning_ship(f, cr, ci);
-	if (f->set == 'J')
-		i = julia(f, cr, ci);
-	if (f->set == 'M')
-		i = mandelbrot(f, cr, ci);
-	return (i);
-}
-
-int	mandelbrot(t_fractal *f, double cr, double ci)
+static int	mandelbrot(t_fractal *f, double cr, double ci)
 {
 	int		i;
 	double	zr;
@@ -46,7 +33,7 @@ int	mandelbrot(t_fractal *f, double cr, double ci)
 	return (i);
 }
 
-int	julia(t_fractal *f, double zr, double zi)
+static int	julia(t_fractal *f, double zr, double zi)
 {
 	int		i;
 	double	cr;
@@ -67,7 +54,7 @@ int	julia(t_fractal *f, double zr, double zi)
 	return (i);
 }
 
-int	burning_ship(t_fractal *f, double cr, double ci)
+static int	burning_ship(t_fractal *f, double cr, double ci)
 {
 	int		i;
 	double	zr;
@@ -89,5 +76,18 @@ int	burning_ship(t_fractal *f, double cr, double ci)
 		zr = zr * zr - zi * zi + cr;
 		zi = temp;
 	}
+	return (i);
+}
+
+int	calculate_set(t_fractal *f, double cr, double ci)
+{
+	int	i;
+
+	if (f->set == 'B')
+		i = burning_ship(f, cr, ci);
+	if (f->set == 'J')
+		i = julia(f, cr, ci);
+	if (f->set == 'M')
+		i = mandelbrot(f, cr, ci);
 	return (i);
 }

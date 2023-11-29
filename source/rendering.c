@@ -6,11 +6,23 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:52:21 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/29 15:33:09 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:44:55 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static void	color_pixel(t_fractal *f, int x_pix, int y_pix, int color)
+{
+	char	*addr;
+
+	addr = f->addr + (y_pix * f->size_line + x_pix * f->bpp / 8);
+	if (color == f->max_iter)
+		*(unsigned int *)addr = 0x00000000;
+	else
+		*(unsigned int *)addr = (f->color_start + color * f->color_step)
+			& 0x00FFFFFF;
+}
 
 void	render(t_fractal *f)
 {
@@ -61,16 +73,4 @@ void	move(t_fractal *f, double x, double y)
 	f->offset_x += x * f->max_r;
 	f->offset_y += y * f->max_r;
 	render(f);
-}
-
-void	color_pixel(t_fractal *f, int x_pix, int y_pix, int color)
-{
-	char	*addr;
-
-	addr = f->addr + (y_pix * f->size_line + x_pix * f->bpp / 8);
-	if (color == f->max_iter)
-		*(unsigned int *)addr = 0x00000000;
-	else
-		*(unsigned int *)addr = (f->color_start + color * f->color_step)
-			& 0x00FFFFFF;
 }

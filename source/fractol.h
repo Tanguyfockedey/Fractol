@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:43:58 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/29 15:24:36 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:47:03 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,8 @@ int		mouse_hook(int hook, int x, int y, t_fractal *f);
 int		event_hook(void);
 
 	//initialisation
-int		argv_check(char *str);
 int		args_check(int argc, char **argv);
-void	init_fractal(t_fractal *fractal, int argc, char **argv);
+int		init_fractal(t_fractal *fractal, int argc, char **argv);
 
 	//key_events
 void	inc_iter(t_fractal *f);
@@ -81,12 +80,8 @@ void	print_commands(void);
 void	render(t_fractal *f);
 void	zoom(t_fractal *f, int x, int y, double scale);
 void	move(t_fractal *f, double x, double y);
-void	color_pixel(t_fractal *f, int x_pix, int y_pix, int color);
 
 	//sets
 int		calculate_set(t_fractal *f, double cr, double ci);
-int		mandelbrot(t_fractal *f, double cr, double ci);
-int		julia(t_fractal *f, double zr, double zi);
-int		burning_ship(t_fractal *f, double cr, double ci);
 
 #endif

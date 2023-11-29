@@ -6,7 +6,7 @@
 #    By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 18:30:38 by tafocked          #+#    #+#              #
-#    Updated: 2023/11/26 14:55:24 by tafocked         ###   ########.fr        #
+#    Updated: 2023/11/29 16:36:55 by tafocked         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,13 @@ FILES	= source/hooks.c \
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 LDLIBS	= includes/libft_updated/libft.a \
-			-lmlx -framework OpenGL -framework AppKit \
-			-lm
+			-lmlx -framework OpenGL -framework AppKit
 OBJ		= $(FILES:.c=.o)
 
 all: fclean libs $(NAME) clean
 
 re: $(NAME)
- 
+
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(LDLIBS) $(OBJ) -o $(NAME)
 

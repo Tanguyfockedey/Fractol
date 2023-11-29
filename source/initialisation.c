@@ -6,13 +6,13 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:58:06 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/29 15:27:17 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:46:59 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	argv_check(char *str)
+static int	argv_check(char *str)
 {
 	int	i;
 
@@ -61,12 +61,14 @@ int	args_check(int argc, char **argv)
 	return (print_params());
 }
 
-void	init_fractal(t_fractal *f, int argc, char **argv)
+int	init_fractal(t_fractal *f, int argc, char **argv)
 {
 	f->mlx = mlx_init();
 	f->window = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fract'ol");
 	f->image = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->image, &f->bpp, &f->size_line, &f->endian);
+	if (!f->mlx || !f->window || !f->image || !f->addr)
+		return (0);
 	f->set = argv[1][0];
 	f->jr = -0.1;
 	f->ji = 0.651;
@@ -84,4 +86,5 @@ void	init_fractal(t_fractal *f, int argc, char **argv)
 	f->offset_y = 0.;
 	f->color_start = 0;
 	f->color_step = 1000;
+	return (1);
 }
