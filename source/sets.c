@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:54:12 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/26 18:13:05 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:34:13 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	calculate_set(t_fractal *f, double cr, double ci)
 
 int	mandelbrot(t_fractal *f, double cr, double ci)
 {
-	int	i;
+	int		i;
 	double	zr;
 	double	zi;
 	double	temp;
@@ -38,7 +38,7 @@ int	mandelbrot(t_fractal *f, double cr, double ci)
 	while (++i < f->max_iter)
 	{
 		if ((zr * zr + zi * zi) > 4.)
-			break;
+			break ;
 		temp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;
 		zi = temp;
@@ -48,7 +48,7 @@ int	mandelbrot(t_fractal *f, double cr, double ci)
 
 int	julia(t_fractal *f, double zr, double zi)
 {
-	int	i;
+	int		i;
 	double	cr;
 	double	ci;
 	double	temp;
@@ -59,7 +59,7 @@ int	julia(t_fractal *f, double zr, double zi)
 	while (++i < f->max_iter)
 	{
 		if ((zr * zr + zi * zi) > 4.)
-			break;
+			break ;
 		temp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;
 		zi = temp;
@@ -69,7 +69,7 @@ int	julia(t_fractal *f, double zr, double zi)
 
 int	burning_ship(t_fractal *f, double cr, double ci)
 {
-	int	i;
+	int		i;
 	double	zr;
 	double	zi;
 	double	temp;
@@ -80,7 +80,7 @@ int	burning_ship(t_fractal *f, double cr, double ci)
 	while (++i < f->max_iter)
 	{
 		if ((zr * zr + zi * zi) > 4.)
-			break;
+			break ;
 		if (zr < 0)
 			zr = -zr;
 		if (zi < 0)
@@ -91,4 +91,3 @@ int	burning_ship(t_fractal *f, double cr, double ci)
 	}
 	return (i);
 }
-

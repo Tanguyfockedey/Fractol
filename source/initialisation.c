@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:58:06 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/26 18:51:23 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:27:17 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ int	args_check(int argc, char **argv)
 	double	b;
 
 	if (argc == 2 && (!ft_strncmp(argv[1], "M", 2)
-					|| !ft_strncmp(argv[1], "Mandelbrot", 11)
-					|| !ft_strncmp(argv[1], "J", 2)
-					|| !ft_strncmp(argv[1], "Julia", 6)
-					|| !ft_strncmp(argv[1], "B", 2)
-					|| !ft_strncmp(argv[1], "Burning Ship", 13)))
+			|| !ft_strncmp(argv[1], "Mandelbrot", 11)
+			|| !ft_strncmp(argv[1], "J", 2)
+			|| !ft_strncmp(argv[1], "Julia", 6)
+			|| !ft_strncmp(argv[1], "B", 2)
+			|| !ft_strncmp(argv[1], "Burning Ship", 13)))
 		return (1);
 	if (argc == 4 && (!ft_strncmp(argv[1], "J", 2)
-					|| !ft_strncmp(argv[1], "Julia", 6)))
+			|| !ft_strncmp(argv[1], "Julia", 6)))
 	{
 		if (!argv_check(argv[2]) || !argv_check(argv[3]))
 			return (print_params()); 

@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:43:58 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/26 18:08:52 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:24:36 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ typedef struct s_fractal
 }	t_fractal;
 
 	//hooks
-int	key_hook(int hook, t_fractal *f);
-int	mouse_hook(int hook, int x, int y, t_fractal *f);
-int	event_hook(void);
+int		key_hook(int hook, t_fractal *f);
+int		mouse_hook(int hook, int x, int y, t_fractal *f);
+int		event_hook(void);
 
 	//initialisation
-int	argv_check(char *str);
-int	args_check(int argc, char **argv);
+int		argv_check(char *str);
+int		args_check(int argc, char **argv);
 void	init_fractal(t_fractal *fractal, int argc, char **argv);
 
 	//key_events
@@ -84,9 +84,9 @@ void	move(t_fractal *f, double x, double y);
 void	color_pixel(t_fractal *f, int x_pix, int y_pix, int color);
 
 	//sets
-int	calculate_set(t_fractal *f, double cr, double ci);
-int	mandelbrot(t_fractal *f, double cr, double ci);
-int	julia(t_fractal *f, double zr, double zi);
-int	burning_ship(t_fractal *f, double cr, double ci);
+int		calculate_set(t_fractal *f, double cr, double ci);
+int		mandelbrot(t_fractal *f, double cr, double ci);
+int		julia(t_fractal *f, double zr, double zi);
+int		burning_ship(t_fractal *f, double cr, double ci);
 
 #endif

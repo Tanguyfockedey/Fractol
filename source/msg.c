@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:04:50 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/26 18:05:04 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:28:21 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_params(void)
 	ft_printf("M - Mandelbrot \n");
 	ft_printf("B - Burning Ship \n");
 	ft_printf("J - Julia \n");
-	ft_printf("For julia you may specify two values between -2.0 and 2.0\n");	
+	ft_printf("For julia you may specify two values between -2.0 and 2.0\n");
 	return (0);
 }
 
