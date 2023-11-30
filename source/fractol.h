@@ -6,14 +6,14 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:43:58 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/29 16:47:03 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:36:04 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "../includes/libft_updated/base/libft.h"
+# include "../includes/libft_updated/libft/libft.h"
 # include "../includes/libft_updated/printf/ft_printf.h"
 # include <mlx.h>
 
