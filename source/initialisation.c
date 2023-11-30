@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:58:06 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/29 16:46:59 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/11/30 13:56:18 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,26 @@ int	args_check(int argc, char **argv)
 	return (print_params());
 }
 
-int	init_fractal(t_fractal *f, int argc, char **argv)
+static int	init_mlx(t_fractal *f)
 {
 	f->mlx = mlx_init();
+	if (!f->mlx)
+		return (0);
 	f->window = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fract'ol");
+	if (!f->window)
+		return (0);
 	f->image = mlx_new_image(f->mlx, WIDTH, HEIGHT);
+	if (!f->image)
+		return (0);
 	f->addr = mlx_get_data_addr(f->image, &f->bpp, &f->size_line, &f->endian);
-	if (!f->mlx || !f->window || !f->image || !f->addr)
+	if (!f->addr)
+		return (0);
+	return (1);
+}
+
+int	init_fractal(t_fractal *f, int argc, char **argv)
+{
+	if (!init_mlx(f))
 		return (0);
 	f->set = argv[1][0];
 	f->jr = -0.1;
