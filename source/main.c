@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:37:47 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/29 16:18:39 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:25:16 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int	main(int argc, char **argv)
 	mlx_hook(f.window, 17, 0, event_hook, &f);
 	render(&f);
 	mlx_loop(f.mlx);
+	return (0);
 }
