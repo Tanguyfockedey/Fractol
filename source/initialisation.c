@@ -6,7 +6,7 @@
 /*   By: tafocked <tafocked@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:58:06 by tafocked          #+#    #+#             */
-/*   Updated: 2023/11/30 13:56:18 by tafocked         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:49:07 by tafocked         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	args_check(int argc, char **argv)
 			|| !ft_strncmp(argv[1], "Julia", 6)))
 	{
 		if (!argv_check(argv[2]) || !argv_check(argv[3]))
-			return (print_params()); 
+			return (print_params());
 		a = ft_atof(argv[2]);
 		b = ft_atof(argv[3]);
 		if (a >= -2. && a <= 2. && b >= -2. && b <= 2.)
